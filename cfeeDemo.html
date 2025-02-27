@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-Fee Statement | Anago Cleaning Systems</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #f4f7f8, #e9ecef);
+            margin: 0;
+            padding: 10px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        header {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            background-color: #ffffff;
+            min-height: 60px;
+            border-bottom: 2px solid #e0e0e0;
+            padding: 5px 0;
+        }
+        .logo {
+            grid-column: 1;
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+        .logo img {
+            max-width: 150px;
+            height: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        h1 {
+            grid-column: 2;
+            justify-self: end;
+            margin-right: 10px;
+            font-size: 22px;
+            color: #2c3e50;
+            flex-shrink: 0;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        h2, h3 {
+            margin: 0 0 0px 0;
+            font-weight: 600;
+            color: #34495e;
+        }
+        h2 {
+            font-size: 8px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        h3 {
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        td {
+            background-color: #ffffff;
+            text-align: right;
+        }
+        .highlight {
+            background-color: #f1f9ff;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 3px 0;
+            box-sizing: border-box;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            background-color: #ffffff;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .payment-option {
+            background-color: #F5F5F5;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+        }
+        .most-common {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: -5px;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        /* Media queries for larger screens */
+        @media screen and (min-width: 768px) {
+            .container {
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            .logo img {
+                max-width: 220px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            th, td {
+                padding: 15px;
+                font-size: 20px;
+            }
+            input[type="text"], input[type="number"] {
+                padding: 15px;
+                margin: 8px 0;
+                border-radius: 8px;
+                font-size: 20px;
+            }
+            .actions {
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+            button {
+                padding: 12px 25px;
+                font-size: 16px;
+                border-radius: 6px;
+            }
+            .payment-option {
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+                margin-bottom: 30px;
+            }
+            .most-common {
+                margin-top: 5px;
+                margin-bottom: 15px;
+                font-size: 16px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .actions {
+                display: none !important;
+            }
+            .container {
+                width: 100%;
+                max-width: 680px;
+                padding: 15px;
+                margin: 0 auto;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            header {
+                border-bottom: 2px solid #e0e0e0;
+                padding-bottom: 8px;
+                margin-bottom: 5px;
+            }
+            .logo img {
+                max-width: 160px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+            h2, h3 {
+                font-size: 16px;
+                margin: 0 0 8px 0;
+            }
+            h2 {
+                padding-bottom: 4px;
+            }
+            section {
+                margin-bottom: 15px;
+            }
+            table {
+                margin-top: 8px;
+            }
+            th, td {
+                padding: 8px;
+                font-size: 12px;
+            }
+            input[type="text"], input[type="number"] {
+                padding: 6px;
+                margin: 2px 0;
+                border-radius: 4px;
+                font-size: 12px;
+            }
+            .payment-option {
+                padding: 12px;
+                border-radius: 5px;
+                box-shadow: shadow;
+                margin-bottom: 12px;
+            }
+            .most-common {
+                margin-top: -4px;
+                margin-bottom: 4px;
+                font-size: 10px;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 2mm;
+            }
+        }
+    </style>
+    <!-- Include html2canvas and jsPDF libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="logo">
+                <img src="https://cdn-ilafcfb.nitrocdn.com/KEhcwwSaSxLtwUeasrlkkKIKKhAgEOob/assets/images/optimized/rev-16fc74f/anagocleaning.com/wp-content/uploads/2023/09/anagologo2-300x181.png" alt="Anago Cleaning Systems Logo">
+            </div>
+            <h1>C-Fee Calculator</h1>
+        </header>
+
+        <!-- Account Information Section -->
+        <section class="client-info">
+            <h2>Account Information:</h2>
+            <form>
+                <label for="account-name">Account Name:</label>
+                <input type="text" id="account-name" name="account-name" value=" ">
+                
+                <label for="monthly-amount">Monthly Account Amount:</label>
+                <input type="number" id="monthly-amount" name="monthly-amount" step="0.01" value="0.00">
+
+                <label for="cfi-factor">CFI Factor:</label>
+                <input type="number" id="cfi-factor" name="cfi-factor" value="0.0" step="0.01">
+            </form>
+        </section>
+
+        <!-- Actions Section: Calculate, Print, and Download Buttons -->
+        <section class="actions">
+            <button id="calculate-btn">Calculate</button>
+            <button id="print-btn">Print</button>
+            <button id="download-btn">Download</button>
+        </section>
+
+        <!-- Cash Payment Section -->
+        <section class="payment-option">
+            <h3>Cash Payment</h3>
+            <table>
+                <tr>
+                    <th>C-fee Amount (<span id="cfi-factor-cash">0.0</span> x $<span id="cfee-applied-cash">0.00</span>)</th>
+                    <td id="cfee-amount-cash">$0.00</td>
+                </tr>
+                <tr>
+                    <th>Cash Discount (15%)</th>
+                    <td id="cash-discount">($0.00)</td>
+                </tr>
+                <tr class="highlight">
+                    <th>Total Due</th>
+                    <td id="total-due-cash">$0.00</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 120 Days No Interest Section -->
+        <section class="payment-option">
+            <h3>120 Days No Interest</h3>
+            <table>
+                <tr>
+                    <th>C-fee Amount (<span id="cfi-factor-120">0.0</span> x $<span id="cfee-applied-120">0.00</span>)</th>
+                    <td id="cfee-amount-120">$0.00</td>
+                </tr>
+                <tr>
+                    <th>Payment Amount (4 months)</th>
+                    <td id="payment-amount-120">0.00</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Financed (12 Months) Section -->
+        <section class="payment-option">
+            <h3>Financed (12 Months)</h3>
+            <p class="most-common">Most Common Option</p>
+            <table>
+                <tr>
+                    <th>C-fee Amount (<span id="cfi-factor-financed">0.0</span> x $<span id="cfee-applied-financed">0.00</span>)</th>
+                    <td id="cfee-amount-financed">$0.00</td>
+                </tr>
+                <tr>
+                    <th>12% Interest</th>
+                    <td id="interest">$0.00</td>
+                </tr>
+                <tr>
+                    <th>Financed Total</th>
+                    <td id="financed-total">$0.00</td>
+                </tr>
+                <tr>
+                    <th>Monthly Payment (12 months)</th>
+                    <td id="monthly-payment-financed">$0.00</td>
+                </tr>
+            </table>
+        </section>
+    </div>
+
+    <!-- JavaScript for Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const { jsPDF } = window.jspdf;
+
+            const calculateBtn = document.getElementById('calculate-btn');
+            const printBtn = document.getElementById('print-btn');
+            const downloadBtn = document.getElementById('download-btn');
+            const container = document.querySelector('.container');
+            const actionsSection = container.querySelector('.actions');
+
+            // Elements for inputs and outputs
+            const accountNameInput = document.getElementById('account-name');
+            const monthlyAmountInput = document.getElementById('monthly-amount');
+            const cfiFactorInput = document.getElementById('cfi-factor');
+
+            const cfiFactorCash = document.getElementById('cfi-factor-cash');
+            const cfeeAppliedCash = document.getElementById('cfee-applied-cash');
+            const cfeeAmountCash = document.getElementById('cfee-amount-cash');
+            const cashDiscount = document.getElementById('cash-discount');
+            const totalDueCash = document.getElementById('total-due-cash');
+
+            const cfiFactor120 = document.getElementById('cfi-factor-120');
+            const cfeeApplied120 = document.getElementById('cfee-applied-120');
+            const cfeeAmount120 = document.getElementById('cfee-amount-120');
+            const paymentAmount120 = document.getElementById('payment-amount-120');
+
+            const cfiFactorFinanced = document.getElementById('cfi-factor-financed');
+            const cfeeAppliedFinanced = document.getElementById('cfee-applied-financed');
+            const cfeeAmountFinanced = document.getElementById('cfee-amount-financed');
+            const interest = document.getElementById('interest');
+            const financedTotal = document.getElementById('financed-total');
+            const monthlyPaymentFinanced = document.getElementById('monthly-payment-financed');
+
+            // Calculate button functionality
+            calculateBtn.addEventListener('click', () => {
+                const monthlyAmount = parseFloat(monthlyAmountInput.value) || 0;
+                const cfiFactor = parseFloat(cfiFactorInput.value) || 0;
+
+                // Cash Payment Calculations
+                const cfeeAmount = monthlyAmount * cfiFactor;
+                const cashDiscountValue = cfeeAmount * 0.15;
+                const totalDue = cfeeAmount - cashDiscountValue;
+
+                cfiFactorCash.textContent = cfiFactor.toFixed(2);
+                cfeeAppliedCash.textContent = monthlyAmount.toFixed(2);
+                cfeeAmountCash.textContent = `$${cfeeAmount.toFixed(2)}`;
+                cashDiscount.textContent = `($${cashDiscountValue.toFixed(2)})`;
+                totalDueCash.textContent = `$${totalDue.toFixed(2)}`;
+
+                // 120 Days No Interest Calculations
+                const paymentAmount = cfeeAmount / 4;
+
+                cfiFactor120.textContent = cfiFactor.toFixed(2);
+                cfeeApplied120.textContent = monthlyAmount.toFixed(2);
+                cfeeAmount120.textContent = `$${cfeeAmount.toFixed(2)}`;
+                paymentAmount120.textContent = `$${paymentAmount.toFixed(2)}`;
+
+                // Financed (12 Months) Calculations
+                const interestValue = cfeeAmount * 0.12;
+                const financedTotalValue = cfeeAmount + interestValue;
+                const monthlyPayment = financedTotalValue / 12;
+
+                cfiFactorFinanced.textContent = cfiFactor.toFixed(2);
+                cfeeAppliedFinanced.textContent = monthlyAmount.toFixed(2);
+                cfeeAmountFinanced.textContent = `$${cfeeAmount.toFixed(2)}`;
+                interest.textContent = `$${interestValue.toFixed(2)}`;
+                financedTotal.textContent = `$${financedTotalValue.toFixed(2)}`;
+                monthlyPaymentFinanced.textContent = `$${monthlyPayment.toFixed(2)}`;
+            });
+
+            // Print button functionality
+            printBtn.addEventListener('click', () => {
+                window.print();
+            });
+
+            // Download button functionality
+            downloadBtn.addEventListener('click', async () => {
+                actionsSection.style.display = 'none';
+
+                const canvas = await html2canvas(container, {
+                    backgroundColor: '#ffffff',
+                    scale: 2, // High resolution for better detail
+                    useCORS: true,
+                    scrollY: 0, // Ensure no scrolling artifacts
+                    scrollX: 0
+                });
+
+                actionsSection.style.display = 'flex';
+
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+
+                const pageWidth = 210; // A4 width in mm
+                const pageHeight = 297; // A4 height in mm
+                const canvasWidth = canvas.width;
+                const canvasHeight = canvas.height;
+                const imgWidth = pageWidth - 20; // Slight padding (10mm on each side)
+                const imgHeight = (canvasHeight * imgWidth) / canvasWidth;
+
+                // Handle multi-page PDF if content exceeds one page
+                let heightLeft = imgHeight;
+                let position = 0;
+
+                // Add the first page
+                const imgData = canvas.toDataURL('image/png');
+                pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight); // 10mm margin on left
+                heightLeft -= pageHeight;
+
+                // Add additional pages if needed
+                while (heightLeft > 0) {
+                    position = -(pageHeight - (heightLeft > pageHeight ? pageHeight : heightLeft));
+                    pdf.addPage();
+                    pdf.addImage(imgData, 'PNG', 10, position, imgWidth, heightLeft > pageHeight ? pageHeight : heightLeft);
+                    heightLeft -= pageHeight;
+                }
+
+                // Save the PDF
+                pdf.save('C-Fee_Statement.pdf');
+            });
+        });
+    </script>
+</body>
+</html>
